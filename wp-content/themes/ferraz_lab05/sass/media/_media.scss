@@ -7,6 +7,7 @@
 	padding: 0;
 }
 
+
 /* Make sure embeds and iframes fit their containers. */
 embed,
 iframe,
@@ -18,6 +19,11 @@ object {
 .custom-logo-link {
 	display: inline-block;
 }
+
+/*--------------------------------------------------------------
+## Images
+--------------------------------------------------------------*/
+@import "images";
 
 /*--------------------------------------------------------------
 ## Captions

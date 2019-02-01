@@ -1,3 +1,30 @@
+.entry-header {
+	font-family: $font__sans;
+
+	.entry-title{
+		margin: 0.15em 0 0.08em 0;
+		font-size: 1.5em;
+
+		@include small{
+			font-size: 1.8em
+		}
+
+		@include medium{
+			font-size: 2em
+		}
+
+		a{
+			text-decoration: none;
+			color: #000;
+
+			&:hover,
+			&:focus{
+				border-bottom: 8px solid $color__interactive;
+			}
+		}
+	}
+}
+
 .sticky {
 	display: block;
 }
@@ -20,4 +47,26 @@
 .page-links {
 	clear: both;
 	margin: 0 0 1.5em;
+}
+
+.full-bleed{
+	width: 100vw;
+}
+.featured-image{
+	margin-left: -1em;
+	max-height: 50%;
+	
+	img{
+		width: 100%;
+		max-height: 800;
+		object-fit: cover;
+	}
+
+	@include medium{
+		margin-left: -2em;
+	}
+	@include large{
+		margin-right: calc(( (-100vw + #{$large_breakpoint}) /2) - 2em);
+		margin-left: calc(( (-100vw + #{$large_breakpoint}) /2) - 2em);
+	}
 }

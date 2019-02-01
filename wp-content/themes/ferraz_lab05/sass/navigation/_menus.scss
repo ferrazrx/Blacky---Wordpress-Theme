@@ -1,7 +1,5 @@
 .main-navigation {
-	clear: both;
 	display: block;
-	float: left;
 	width: 100%;
 
 	ul {
@@ -12,11 +10,11 @@
 
 		ul {
 			box-shadow: 0 3px 3px rgba(0, 0, 0, 0.2);
-			float: left;
 			position: absolute;
 			top: 100%;
 			left: -999em;
 			z-index: 99999;
+			background-color: #FFF;
 
 			ul {
 				left: -999em;
@@ -32,16 +30,46 @@
 
 			a {
 				width: 200px;
+				color: #111;
+			}
+
+			.page_item_has_children > a:after{
+				display: inline-block;
+				width: 0;
+				height: 0;
+				margin-left: .255em;
+				vertical-align: .055em;
+				content: "";
+				border-top: .2em solid transparent;
+				border-right: 0;
+				border-bottom: .2em solid transparent;
+				border-left: .2em solid;
 			}
 
 			:hover > a,
 			.focus > a {
+				background-color: #CCC;
 			}
 
 			a:hover,
 			a.focus {
 			}
 		}
+
+		.page_item_has_children > a:after{
+			display: inline-block;
+			width: 0;
+			height: 0;
+			margin-left: .255em;
+			vertical-align: .255em;
+			content: "";
+			border-top: .255em solid;
+			border-right: .255em solid transparent;
+			border-bottom: 0;
+			border-left: .255em solid transparent;
+		}
+
+		
 
 		li:hover > ul,
 		li.focus > ul {
@@ -50,17 +78,18 @@
 	}
 
 	li {
-		float: left;
 		position: relative;
-
 		&:hover > a,
 		&.focus > a {
+			text-decoration: underline;
 		}
 	}
 
 	a {
-		display: block;
+		display: inline-block;
 		text-decoration: none;
+		padding: 5px 15px;
+		color: #FFF;
 	}
 
 	.current_page_item > a,
@@ -70,18 +99,45 @@
 	}
 }
 
+
 /* Small menu. */
+.menu-toggle{
+	background: #000;
+
+	&:hover{
+		background: $color__interactive;
+	}
+}
+
+
 .menu-toggle,
 .main-navigation.toggled ul {
 	display: block;
+	
 }
 
-@media screen and (min-width: 37.5em) {
+
+@include medium {
 	.menu-toggle {
 		display: none;
 	}
 	.main-navigation ul {
-		display: block;
+		display: flex;
+		flex-direction: row-reverse;
+		flex-wrap: wrap;
+		justify-content: flex-end;
+	}
+}
+
+@include large {
+	.menu-toggle {
+		display: none;
+	}
+	.main-navigation ul {
+		display: flex;
+		flex-direction: row-reverse;
+		flex-wrap: wrap;
+		justify-content: flex-end;
 	}
 }
 
@@ -92,16 +148,5 @@
 	.site-main & {
 		margin: 0 0 1.5em;
 		overflow: hidden;
-	}
-
-	.nav-previous {
-		float: left;
-		width: 50%;
-	}
-
-	.nav-next {
-		float: right;
-		text-align: right;
-		width: 50%;
 	}
 }

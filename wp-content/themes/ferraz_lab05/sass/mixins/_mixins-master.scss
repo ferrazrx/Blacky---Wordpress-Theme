@@ -1,7 +1,7 @@
 // Rem output with px fallback
 @mixin font-size($sizeValue: 1) {
-	font-size: ($sizeValue * 16) * 1px;
-	font-size: $sizeValue * 1rem;
+	font-size: ($sizeValue * 20) * 1px;
+	font-size: $sizeValue * 1.25rem;
 }
 
 // Center block
@@ -27,3 +27,27 @@
 @mixin column-width($numberColumns: 3) {
 	width: map-get( $columns, $numberColumns ) - ( ( $columns__margin * ( $numberColumns - 1 ) ) / $numberColumns );
 }
+
+@mixin small {
+	@media screen and (min-width: $small_breakpoint) {
+		@content;
+	}
+}
+@mixin medium {
+	@media screen and (min-width: $medium_breakpoint) {
+		@content;
+	}
+}
+@mixin large {
+	@media screen and (min-width: $large_breakpoint) {
+		@content;
+	}
+}
+@mixin extra_large {
+	@media screen and (min-width: $extra_large_breakpoint) {
+		@content;
+	}
+}
+
+
+

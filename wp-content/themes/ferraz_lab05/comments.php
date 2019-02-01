@@ -38,7 +38,7 @@ if ( post_password_required() ) {
 			} else {
 				printf( // WPCS: XSS OK.
 					/* translators: 1: comment count number, 2: title. */
-					esc_html( _nx( '%1$s thought on &ldquo;%2$s&rdquo;', '%1$s thoughts on &ldquo;%2$s&rdquo;', $ferraz_lab05_comment_count, 'comments title', 'ferraz_lab05' ) ),
+					esc_html( _nx( 'One comment;', '%1$s comments', $ferraz_lab05_comment_count, 'comments title', 'ferraz_lab05' ) ),
 					number_format_i18n( $ferraz_lab05_comment_count ),
 					'<span>' . get_the_title() . '</span>'
 				);
@@ -46,13 +46,12 @@ if ( post_password_required() ) {
 			?>
 		</h2><!-- .comments-title -->
 
-		<?php the_comments_navigation(); ?>
-
 		<ol class="comment-list">
 			<?php
 			wp_list_comments( array(
 				'style'      => 'ol',
 				'short_ping' => true,
+				'avatar_size'=> 96
 			) );
 			?>
 		</ol><!-- .comment-list -->

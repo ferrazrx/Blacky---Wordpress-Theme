@@ -23,29 +23,45 @@
 <body <?php body_class(); ?>>
 <div id="page" class="site">
 	<a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', 'ferraz_lab05' ); ?></a>
+	
+	<?php if ( is_front_page() && is_home() ) : ?>
+		
+		<figure class="header-image">
+			<?php the_header_image_tag(); ?>
+		</figure>
 
+	<?php endif; ?>
+	
+	
 	<header id="masthead" class="site-header">
 		<div class="site-branding">
 			<?php
-			the_custom_logo();
-			if ( is_front_page() && is_home() ) :
-				?>
-				<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
+			if(has_custom_logo()):?>
+			<div class="custom-logo">
+				<?php the_custom_logo(); ?>
+			</div>
+			<div class="site-branding-content">
+				<?php endif; ?><!-- .site-logo -->
 				<?php
-			else :
-				?>
-				<p class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></p>
-				<?php
-			endif;
-			$ferraz_lab05_description = get_bloginfo( 'description', 'display' );
-			if ( $ferraz_lab05_description || is_customize_preview() ) :
-				?>
-				<p class="site-description"><?php echo $ferraz_lab05_description; /* WPCS: xss ok. */ ?></p>
-			<?php endif; ?>
+				if ( is_front_page() && is_home() ) :
+					?>
+					<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
+					<?php
+				else :
+					?>
+					<p class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></p>
+					<?php
+				endif;
+				$ferraz_lab05_description = get_bloginfo( 'description', 'display' );
+				if ( $ferraz_lab05_description || is_customize_preview() ) :
+					?>
+					<p class="site-description"><?php echo $ferraz_lab05_description; /* WPCS: xss ok. */ ?></p>
+				<?php endif; ?>
+			</div>
 		</div><!-- .site-branding -->
 
 		<nav id="site-navigation" class="main-navigation">
-			<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e( 'Primary Menu', 'ferraz_lab05' ); ?></button>
+			<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><svg height="32" version="1" width="32" xmlns="http://www.w3.org/2000/svg"><path fill="#FFF" d="M4 10h24a2 2 0 0 0 0-4H4a2 2 0 0 0 0 4zm24 4H4a2 2 0 0 0 0 4h24a2 2 0 0 0 0-4zm0 8H4a2 2 0 0 0 0 4h24a2 2 0 0 0 0-4z"/></svg></button>
 			<?php
 			wp_nav_menu( array(
 				'theme_location' => 'menu-1',

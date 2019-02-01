@@ -8,10 +8,18 @@ dfn, cite, em, i {
 
 blockquote {
 	margin: 0 1.5em;
+	
+	a{
+		font-weight: 600;
+		color: $color__interactive;
+		text-decoration: none;
+	}
 }
 
 address {
 	margin: 0 0 1.5em;
+	color: #FFF;
+	font-size: 12em;
 }
 
 pre {

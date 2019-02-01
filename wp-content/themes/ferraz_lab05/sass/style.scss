@@ -1,7 +1,7 @@
 /*!
 Theme Name: Ferraz_lab05
-Theme URI: http://underscores.me/
-Author: Rafael Ferraz
+Theme URI: https://github.com/ferrazrx/wordpress_theme
+Author: Rafael Ximenes Ferraz The best!
 Author URI: http://ferrazrx.github.io
 Description: My First Web Site
 Version: 1.0.0
@@ -45,6 +45,7 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 @import "variables-site/variables-site";
 @import "mixins/mixins-master";
 
+
 /*--------------------------------------------------------------
 # Normalize
 --------------------------------------------------------------*/
@@ -86,14 +87,14 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 @import "modules/clearings";
 
 /*--------------------------------------------------------------
-# Widgets
---------------------------------------------------------------*/
-@import "site/secondary/widgets";
-
-/*--------------------------------------------------------------
 # Content
 --------------------------------------------------------------*/
 @import "site/site";
+
+/*--------------------------------------------------------------
+# Widgets
+--------------------------------------------------------------*/
+@import "site/secondary/widgets";
 
 /*--------------------------------------------------------------
 # Infinite scroll

@@ -1,6 +1,91 @@
 .comment-content a {
 	word-wrap: break-word;
+
+	&:hover,
+	&:focus,
+	&:active {
+		border-bottom: 2px solid $color__interactive;
+	}
 }
 .bypostauthor {
 	display: block;
 }
+.comment-list{
+	list-style: none;
+}
+.comment-metadata{
+	font-size: 0.8em;
+
+	a{
+		text-decoration: none;
+		color: #999;
+
+		&:hover,
+		&:focus,
+		&:active {
+			border-bottom: 2px solid $color__interactive;
+		}
+	}
+
+	.edit-link{
+		&:before{
+			content: "|";
+			color: #999;
+			padding: 0 8px;
+			font-weight: 900;
+		}
+	}
+}
+.comment-author{
+	position: relative;
+
+	.fn{
+		a{
+			text-decoration: none;
+			color: #000;
+			font-size: 1.2em;
+
+			&:hover,
+			&:focus,
+			&:active {
+            	border-bottom: 2px solid $color__interactive;
+        	}
+		}
+	}
+	.says{
+		
+	}
+	.avatar{
+		padding: 10px;
+		position: absolute;
+		transform: translateX(-100%);
+		border-radius: 50%;
+	}
+}
+.reply{
+	display: flex;
+	justify-content: flex-end;
+}
+
+// buttons
+.comment-reply-link {
+	background: #FFF;
+	border: 1px solid rgba(0,0,0,0.5);
+	padding: 0.8% 1.2%;
+	border-radius: 3px;
+	@include font-size(0.75);
+	text-transform: uppercase;
+	font-family: $font__sans;
+
+	&:hover,
+	&:focus,
+	&:active {
+		background: #000;
+		color: #FFF;
+	}
+}
+.comment-body{
+	padding-bottom: 1%;
+	border-bottom: 2px solid rgba(0,0,0,0.2);
+}
+

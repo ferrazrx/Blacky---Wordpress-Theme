@@ -26,7 +26,15 @@
 				/* translators: 1: Theme name, 2: Theme author. */
 				printf( esc_html__( 'Theme: %1$s by %2$s.', 'ferraz_lab05' ), 'ferraz_lab05', '<a href="http://ferrazrx.github.io">Rafael Ferraz</a>' );
 				?>
-		</div><!-- .site-info -->
+		</div>
+		<div class="social-media">
+		<?php
+			wp_nav_menu( array(
+				'theme_location' => 'menu-2',
+				'menu_class'        => 'social-buttons',
+			) );
+			?>
+		</div><!-- .social-media -->
 	</footer><!-- #colophon -->
 </div><!-- #page -->
 

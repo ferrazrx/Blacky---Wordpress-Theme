@@ -13,4 +13,13 @@
 
 .wp-caption-text {
 	text-align: center;
+	padding: 0 1em;
+	font-weight: 100;
+	font-family: $font__sans;
+	font-size: 0.8em;
+
+	@include small{
+		padding: 0 2em;
+		font-size: 0.9em;
+	}
 }

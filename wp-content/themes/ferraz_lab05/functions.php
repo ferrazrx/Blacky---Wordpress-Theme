@@ -42,9 +42,12 @@ if ( ! function_exists( 'ferraz_lab05_setup' ) ) :
 		 */
 		add_theme_support( 'post-thumbnails' );
 
+		add_image_size('ferraz_lab05_image_size', 1200, 800, true);
+
 		// This theme uses wp_nav_menu() in one location.
 		register_nav_menus( array(
-			'menu-1' => esc_html__( 'Primary', 'ferraz_lab05' ),
+			'menu-1' => esc_html__( 'Header', 'ferraz_lab05' ),
+			'menu-2' => esc_html__( 'Footer', 'ferraz_lab05' ),
 		) );
 
 		/*
@@ -74,10 +77,9 @@ if ( ! function_exists( 'ferraz_lab05_setup' ) ) :
 		 * @link https://codex.wordpress.org/Theme_Logo
 		 */
 		add_theme_support( 'custom-logo', array(
-			'height'      => 250,
-			'width'       => 250,
+			'height'      => 90,
+			'width'       => 40,
 			'flex-width'  => true,
-			'flex-height' => true,
 		) );
 	}
 endif;
@@ -120,9 +122,14 @@ add_action( 'widgets_init', 'ferraz_lab05_widgets_init' );
  * Enqueue scripts and styles.
  */
 function ferraz_lab05_scripts() {
+	//Enqueue Google Fonts PT and Open Sans
+	wp_enqueue_style('ferraz_lab05-fonts', ferraz_lab05_fonts_url());
+	
 	wp_enqueue_style( 'ferraz_lab05-style', get_stylesheet_uri() );
 
 	wp_enqueue_script( 'ferraz_lab05-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20151215', true );
+
+	wp_enqueue_script( 'ferraz_lab05-functions', get_template_directory_uri() . '/js/functions.js', array('customize-preview'), '20160129', true );
 
 	wp_enqueue_script( 'ferraz_lab05-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20151215', true );
 
@@ -131,6 +138,66 @@ function ferraz_lab05_scripts() {
 	}
 }
 add_action( 'wp_enqueue_scripts', 'ferraz_lab05_scripts' );
+
+
+
+/**
+ * Register custom fonts.
+ * 'https://fonts.googleapis.com/css?family=PT+Serif:400,400i,700,700i|Source+Sans+Pro:400,400i,600,900'
+ */
+function ferraz_lab05_fonts_url() {
+	$fonts_url = '';
+
+	/*
+	 * Translators: If there are characters in your language that are not
+	 * supported by PT Serif and Source Sans Pro, translate this to 'off'. Do not translate
+	 * into your own language.
+	 */
+	$pt_serif = _x( 'on', 'PT Serif font: on or off', 'ferraz_lab05' );
+	$source_sans = _x( 'on', 'Source Sans Pro font: on or off', 'ferraz_lab05' );
+
+	$font_families = array();
+
+	if ( 'off' !== $source_sans ) {
+		$font_families[] = 'Source Sans Pro:400,400i,600,900';
+	}
+
+	if ( 'off' !== $pt_serif ) {
+		$font_families[] = 'PT Serif:400,400i,700,700i';
+	}
+
+	if ( in_array('on', array( $source_sans, $pt_serif )) ) {
+
+		$query_args = array(
+			'family' => urlencode( implode( '|', $font_families ) ),
+			'subset' => urlencode( 'latin,latin-ext' ),
+		);
+
+		$fonts_url = add_query_arg( $query_args, 'https://fonts.googleapis.com/css' );
+	}
+
+	return esc_url_raw( $fonts_url );
+}
+
+/**
+ * Add preconnect for Google Fonts.
+ *
+ *
+ * @param array  $urls           URLs to print for resource hints.
+ * @param string $relation_type  The relation type the URLs are printed.
+ * @return array $urls           URLs to print for resource hints.
+ */
+function ferraz_lab05_resource_hints( $urls, $relation_type ) {
+	if ( wp_style_is( 'ferraz_lab05-fonts', 'queue' ) && 'preconnect' === $relation_type ) {
+		$urls[] = array(
+			'href' => 'https://fonts.gstatic.com',
+			'crossorigin',
+		);
+	}
+
+	return $urls;
+}
+add_filter( 'wp_resource_hints', 'ferraz_lab05_resource_hints', 10, 2 );
 
 /**
  * Implement the Custom Header feature.

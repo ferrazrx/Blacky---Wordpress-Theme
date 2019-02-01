@@ -22,6 +22,13 @@ function ferraz_lab05_body_classes( $classes ) {
 		$classes[] = 'no-sidebar';
 	}
 
+	//Add a class to let us know wether the sidebar is active
+	if( is_active_sidebar( 'sidebar-1' )){
+		$classes[] = 'has-sidebar';
+	}else{
+		$classes[] = 'no-sidebar';
+	}
+
 	return $classes;
 }
 add_filter( 'body_class', 'ferraz_lab05_body_classes' );
