@@ -191,3 +191,16 @@ if ( ! function_exists( 'ferraz_lab05_post_navigation' ) ) :
 		));
 	}
 endif;
+
+if ( ! function_exists( 'ferraz_lab05_excerpt_more' ) ) :
+	/**
+	 * Displays an optional post thumbnail.
+	 *
+	 * Wraps the post thumbnail in an anchor element on index views, or a div
+	 * element when on single views.
+	 */
+	function ferraz_lab05_excerpt_more( $more ) {
+		return "…";
+	}
+endif;
+add_filter( 'excerpt_more', 'ferraz_lab05_excerpt_more');

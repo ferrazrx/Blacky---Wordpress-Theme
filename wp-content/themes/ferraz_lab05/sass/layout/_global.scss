@@ -26,20 +26,22 @@
 }
 
 @include medium{
-    .has-sidebar{
-       
-        .hentry{
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
+    .single{
+        &.has-sidebar{
+        
+            .hentry{
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: space-between;
 
-            .post-content{
-                width: $size__post-width;
+                .post-content{
+                    width: $size__post-width;
+                }
+        
+                .widget-area{
+                    width: $size__sidebar-width;
+                }
             }
-    
-            .widget-area{
-                width: $size__sidebar-width;
-            }
-        }
-    }   
+        }   
+    }
 } 

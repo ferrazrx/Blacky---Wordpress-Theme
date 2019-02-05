@@ -1,0 +1,23 @@
+.search{
+    .content-area{
+        background: $color__interactive;
+        padding: 1em;
+        
+
+        .page-content{
+            color: #FFF;
+
+            .search-form{
+                display: flex;
+
+                input[type='submit']{
+                    padding: 0.7em;
+                    margin-left: 5px;
+                }
+            }
+            
+        }
+
+    }
+
+}

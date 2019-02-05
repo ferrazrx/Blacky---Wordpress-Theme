@@ -10,9 +10,6 @@
 ?>
 
 <section class="no-results not-found">
-	<header class="page-header">
-		<h1 class="page-title"><?php esc_html_e( 'Nothing Found', 'ferraz_lab05' ); ?></h1>
-	</header><!-- .page-header -->
 
 	<div class="page-content">
 		<?php
@@ -49,3 +46,11 @@
 		?>
 	</div><!-- .page-content -->
 </section><!-- .no-results -->
+<?php 
+	if(is_404() || is_search()){
+		$args = array( 'posts_per_page'   => 5 );
+
+		$latest_posts = new WP_Query( $args );
+	}
+
+?>

@@ -1,8 +1,136 @@
-.widget {
-	margin: 0 0 1.5em;
+.widget-area{
+	.widget {
+		margin: 0 0 1.5em;
 
-	/* Make sure select elements fit in widgets. */
-	select {
-		max-width: 100%;
+		&-title{
+			@include font-size(1.4)
+		}
+	
+		/* Make sure select elements fit in widgets. */
+		select {
+			max-width: 100%;
+		}
+		ul,ol{
+			list-style: none;
+			padding: 0;
+			margin: 0;
+
+			a{
+				&:hover{
+					border-bottom: 2px solid $color__interactive;
+					font-weight: 900;
+				}
+			}
+
+		}
+	}	
+
+	.widget_calendar {
+		float: left;
+		font-family: $font__sans;
+		
+		#wp-calendar {width: 100%; }
+		#wp-calendar caption { text-align: right; color: #333; font-size: 12px; margin-top: 10px; margin-bottom: 15px; }
+		#wp-calendar thead { font-size: 10px; }
+		#wp-calendar thead th { padding-bottom: 10px; }
+		#wp-calendar tbody { color: #aaa; }
+		#wp-calendar tbody td { background: #f5f5f5; border: 1px solid #fff; text-align: center; padding:8px;}
+		#wp-calendar tbody td:hover { background: #fff; }
+		#wp-calendar tbody .pad { background: none; }
+		#wp-calendar tfoot #next { font-size: 10px; text-transform: uppercase; text-align: right; }
+		#wp-calendar tfoot #prev { font-size: 10px; text-transform: uppercase; padding-top: 10px; }
+	}
+
+	.widget_search{
+		input[type='search']{
+			width: 100%;
+			padding: 0.5em;
+		}
+		input[type='submit']{
+			display: block;
+			margin-left: auto;
+			padding: 0.5em;
+			margin-top: 5px;
+		}
+	}
+
+	.widget_categories{
+		 ul{
+			.cat-item{
+				border-bottom: 1px dashed rgba(#000, 0.5);
+			}
+		}
+		ul{
+			.children{
+				.cat-item{
+					border-bottom: none;
+				}
+			}
+			
+		}
+		.cat-item{
+			padding: 5px 0;
+			a{
+				text-transform: capitalize;
+			}
+			.children{
+				margin-left: 9px;
+				@include font-size(0.85);
+
+				.children{
+					@include font-size(0.8);
+				}
+			}
+		}
+		.current-cat{
+			color: $color__interactive;
+			a{
+				font-weight: 900;
+				color: $color__interactive;
+			}
+		}
+
 	}
 }
+.footer-widgets{
+
+	&.widget-area{
+		width: 100%;
+	}
+
+	background-color: #000;
+	color: #FFF;
+	margin-top: 2em;
+	padding: 1em 0.5em;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+
+	.widget{
+		padding: 1em;
+		flex: 1 0 30%;
+		a{
+			color: #FFF;
+		}
+		
+	}
+
+	.widget_calendar {
+		float: left;
+		font-family: $font__sans;
+		
+		#wp-calendar {width: 100%; }
+		#wp-calendar caption { text-align: right; color: #FFF; font-size: 12px; margin-top: 10px; margin-bottom: 15px; }
+		#wp-calendar thead { font-size: 10px; }
+		#wp-calendar thead th { padding-bottom: 10px; }
+		#wp-calendar tbody { color: #000; }
+		#wp-calendar tbody td { background: #777; border: 1px solid #fff; text-align: center; padding:8px;}
+		#wp-calendar tbody td:hover { background: $color__interactive; }
+		#wp-calendar tbody .pad { background: none; }
+		#wp-calendar tfoot #next { font-size: 10px; text-transform: uppercase; text-align: right; }
+		#wp-calendar tfoot #prev { font-size: 10px; text-transform: uppercase; padding-top: 10px; }
+	}
+
+
+}
+

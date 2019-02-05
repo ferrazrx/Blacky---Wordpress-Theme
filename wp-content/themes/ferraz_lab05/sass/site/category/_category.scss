@@ -1,0 +1,32 @@
+.has-category-widget{
+    .sidebar-categories{
+        width: $size__full-width;
+        
+
+        @include medium{
+            width: $size__sidebar-width;
+        }
+    }
+    .content-area{
+        width: $size__full-width;
+
+        @include medium{
+            width: $size__post-width;
+        }
+    }
+    .category-span{
+        color: $color__interactive;
+    }
+
+}
+
+.uncategorized-categories{
+    .content-area{
+        width: $size__full-width;
+    }
+    .category-span{
+        color: $color__interactive;
+    }
+}
+
+

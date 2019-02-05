@@ -8,7 +8,6 @@
  */
 
 ?>
-
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 	<?php if( has_post_thumbnail() ): ?>
 		<a href="<?php echo esc_url( get_permalink() ) ?>">
@@ -19,9 +18,6 @@
 	<?php endif ?>
 	<div class="post__content">
 		<header class="entry-header">
-			<div class="entry-categories">
-				<?php ferraz_lab05_categories_list(); ?>
-			</div>
 			<div class="header-info">
 				<!-- <?php ferraz_lab05_post_thumbnail(); ?> -->
 				<div class="header-text">

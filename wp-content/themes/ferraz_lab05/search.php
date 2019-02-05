@@ -10,10 +10,7 @@
 get_header();
 ?>
 
-	<section id="primary" class="content-area">
-		<main id="main" class="site-main">
-
-		<?php if ( have_posts() ) : ?>
+	<?php if ( have_posts() ) : ?>
 
 			<header class="page-header">
 				<h1 class="page-title">
@@ -23,6 +20,25 @@ get_header();
 					?>
 				</h1>
 			</header><!-- .page-header -->
+	<?php endif; ?>
+
+	<header class="page-header">
+		<h1 class="page-title">
+			<?php 
+			if( is_404() ){
+				esc_html_e('Page not found!', 'ferraz_lab05');
+			}else if(is_search()){
+				/* Translator: %s = search query */
+				printf( esc_html__( 'Nothing Found for: %s', 'ferraz_lab05' ), '<span>' . get_search_query() . '</span>' );
+			}	
+			?>
+		</h1>
+	</header><!-- .page-header -->
+	
+	<section id="primary" class="content-area">
+		<main id="main" class="site-main">
+
+		<?php if ( have_posts() ) : ?>
 
 			<?php
 			/* Start the Loop */
@@ -38,7 +54,7 @@ get_header();
 
 			endwhile;
 
-			the_posts_navigation();
+			the_posts_pagination();
 
 		else :
 

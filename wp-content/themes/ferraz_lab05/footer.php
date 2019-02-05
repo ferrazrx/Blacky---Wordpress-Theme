@@ -12,7 +12,7 @@
 ?>
 
 	</div><!-- #content -->
-
+	<?php get_sidebar('footer') ?>
 	<footer id="colophon" class="site-footer">
 		<div class="site-info">
 			<a href="<?php echo esc_url( __( 'https://wordpress.org/', 'ferraz_lab05' ) ); ?>">

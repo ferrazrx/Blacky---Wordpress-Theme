@@ -43,6 +43,7 @@ if ( ! function_exists( 'ferraz_lab05_setup' ) ) :
 		add_theme_support( 'post-thumbnails' );
 
 		add_image_size('ferraz_lab05_image_size', 1200, 800, true);
+		add_image_size('ferraz_lab05_index_img', 800, 450, true);
 
 		// This theme uses wp_nav_menu() in one location.
 		register_nav_menus( array(
@@ -109,7 +110,27 @@ function ferraz_lab05_widgets_init() {
 	register_sidebar( array(
 		'name'          => esc_html__( 'Sidebar', 'ferraz_lab05' ),
 		'id'            => 'sidebar-1',
-		'description'   => esc_html__( 'Add widgets here.', 'ferraz_lab05' ),
+		'description'   => esc_html__( 'Add side widgets here.', 'ferraz_lab05' ),
+		'before_widget' => '<section id="%1$s" class="widget %2$s">',
+		'after_widget'  => '</section>',
+		'before_title'  => '<h2 class="widget-title">',
+		'after_title'   => '</h2>',
+	) );
+
+	register_sidebar( array(
+		'name'          => esc_html__( 'Footer Widgets', 'ferraz_lab05' ),
+		'id'            => 'sidebar-2',
+		'description'   => esc_html__( 'Add footer widgets here.', 'ferraz_lab05' ),
+		'before_widget' => '<section id="%1$s" class="widget %2$s">',
+		'after_widget'  => '</section>',
+		'before_title'  => '<h2 class="widget-title">',
+		'after_title'   => '</h2>',
+	) );
+
+	register_sidebar( array(
+		'name'          => esc_html__( 'Category Widget', 'ferraz_lab05' ),
+		'id'            => 'sidebar-3',
+		'description'   => esc_html__( 'Add category widget here.', 'ferraz_lab05' ),
 		'before_widget' => '<section id="%1$s" class="widget %2$s">',
 		'after_widget'  => '</section>',
 		'before_title'  => '<h2 class="widget-title">',

@@ -7,11 +7,11 @@
  * @package Ferraz_lab05
  */
 
-if ( ! is_active_sidebar( 'sidebar-1' ) ) {
+if ( ! is_active_sidebar( 'sidebar-3' ) ) {
 	return;
 }
 ?>
 
-<aside id="sidebar-widget-area" class="widget-area sidebar-widgets">
-	<?php dynamic_sidebar( 'sidebar-1' ); ?>
+<aside id="sidebar-categories" class="widget-area sidebar-categories">
+	<?php dynamic_sidebar( 'sidebar-3' ); ?>
 </aside><!-- #secondary -->
